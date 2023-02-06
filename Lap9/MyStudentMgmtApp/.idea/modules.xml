@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/MyStudentMgmtApp.iml" filepath="$PROJECT_DIR$/MyStudentMgmtApp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lab10-eregistrar/lab10-eregistrar.iml" filepath="$PROJECT_DIR$/lab10-eregistrar/lab10-eregistrar.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lab11-eregistrarWebApi/lab11-eregistrarWebApi.iml" filepath="$PROJECT_DIR$/lab11-eregistrarWebApi/lab11-eregistrarWebApi.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lab9-studentMgmtApp/lab9-studentMgmtApp.iml" filepath="$PROJECT_DIR$/lab9-studentMgmtApp/lab9-studentMgmtApp.iml" />
+    </modules>
+  </component>
+</project>

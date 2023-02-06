@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head th:replace="fragments/head-elements :: headElements"></head>
+<title>MIU Registration system - Search</title>
+</head>
+<body>
+<div th:replace="fragments/header :: header"></div>
+<main>
+  <h1>MIU Registration System</h1>
+<!--  <nav>-->
+<!--    <a href="/fairfieldlibrary/sysadmin/publisher/list">Manage Publishers</a> |-->
+<!--    <a href="#">Manage Books</a> |-->
+<!--    <a href="#">Manage Library Members</a>-->
+<!--  </nav>-->
+  <h2 style="background-color: aqua;">Students search result for '[[${searchString}]]'</h2>
+  <section>
+    <form action="/student/search" method="get">
+      <fieldset>
+        <legend style="font-weight: bolder;">Search for Student(s)</legend>
+        <label>
+          You may search by Student's Name or number.
+        </label>
+        <div>
+          <input type="search" name="searchString" id="searchString" style="width: 35%; height: 4em;"
+                 th:value="${searchString}" placeholder="Enter some text to search for Publisher"
+                 autofocus>
+          <button type="submit" style="height: 4em; width: 7em;">Search</button>
+        </div>
+      </fieldset>
+    </form>
+  </section>
+  <section style="margin-top: 1em;">
+    <table border="1" cellpadding="20" cellspacing="0">
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>Student Number</th>
+        <th>First Name</th>
+        <th>Middle Name</th>
+        <th>Last Name</th>
+        <th>C.P.G.A</th>
+        <th>Enrollment Date</th>
+        <th>International</th>
+        <th>Transcript</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="student, counter : ${students}">
+        <th th:text="${counter.count}"></th>
+        <td th:text="${student.studentNumber}"></td>
+        <td th:text="${student.firstName}"></td>
+        <td th:text="${student.middleName}"></td>
+        <td th:text="${student.cpga}"></td>
+        <td th:text="${student.enrollmentDate}"></td>
+        <td th:text="${student.isInternational}"></td>
+
+        <td th:if="${student.transcript != null}">
+          <p>
+            <span th:text="${student.transcript.degreeTitle}"></span><br>
+          </p>
+        </td>
+      </tr>
+<!--      <tr th:if="${students.isEmpty()}">-->
+<!--        <td colspan="3" th:align="center">No Student found</td>-->
+<!--      </tr>-->
+      </tbody>
+    </table>
+  </section>
+  <section style="margin-top: 1em;">
+    <!-- Pagination -->
+    <!-- <table border="1" cellspacing="3" cellpadding="5">
+      <tbody>
+        <tr>
+          <th scope="row">Pages:</th>
+          <td th:each="pageCount : ${#numbers.sequence(1, publishers.totalPages)}">
+            <a th:if="${currentPageNo == pageCount-1}" th:href="@{/fairfieldlibrary/sysadmin/publisher/list(pageNo=${pageCount-1})}"
+              th:text="${pageCount}" style="padding: 100%; background-color:aqua;"></a>
+            <a th:if="${currentPageNo != pageCount-1}" th:href="@{/fairfieldlibrary/sysadmin/publisher/list(pageNo=${pageCount-1})}"
+              th:text="${pageCount}"></a>
+          </td>
+        </tr>
+      </tbody>
+    </table> -->
+  </section>
+</main>
+<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>
