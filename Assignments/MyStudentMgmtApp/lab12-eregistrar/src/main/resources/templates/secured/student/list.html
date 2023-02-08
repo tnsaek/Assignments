@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head th:replace="fragments/head-elements :: headElements"></head>
+<title>MIU Registration system - Student</title>
+</head>
+<body>
+<div th:replace="fragments/header :: header"></div>
+<div id="mainContainer" class="container">
+    <div style="width: 100%;">
+        <h3 style="display: inline;">Our Students</h3>
+        <span style="float: right;">
+                <a class="btn btn-outline-primary btn-lg" href="/new">
+                    <i class="fa-brands fa-product-hunt"></i> Add a New Student
+                </a>
+            <a class="btn btn-outline-primary btn-lg" th:href="@{'/search'}">
+                        <i class="fa-brands fa-product-hunt"></i> Search Student
+                    </a>
+            </span>
+    </div>
+    <hr/>
+    <div style="font-size: 1em">
+        <!-- table with publishers-->
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Student Number</th>
+                <th scope="col">First Name</th>
+                <th scope="col">Middle Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">C.P.G.A</th>
+                <th scope="col">Enrollment Date</th>
+                <th scope="col">International</th>
+                <th scope="col">Transcript</th>
+                <th scope="col">&nbsp;</th>
+                <th scope="col">&nbsp;</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="student,iterStat : ${students}">
+                <!--th:onclick="@{document.location='/elibrary/book/edit/{bookId}'(bookId=${book.bookId})}" -->
+                <th scope="row" th:text="${iterStat.count}+${'.'}"></th>
+                <td th:text="${student.studentNumber}"></td>
+                <td th:text="${student.firstName}"></td>
+                <td th:text="${student.middleName}"></td>
+                <td th:text="${student.lastName}"></td>
+                <td th:text="${student.cpga}"></td>
+                <td th:text="${student.enrollmentDate}"></td>
+                <td th:text="${student.isInternational}"></td>
+                <td th:if="${student.transcript != null}">
+                    <p>
+                        <span th:text="${student.transcript.degreeTitle}"></span><br>
+<!--                        <span th:text="${publisher.primaryAddress.city}+${', '}+${publisher.primaryAddress.state}+${' '}+${publisher.primaryAddress.zipCode}"></span>-->
+                    </p>
+                    <a th:href="@{'/delete/transcript/{studentId}'(studentId=${student.studentId})}">
+                        <i class="fa-solid fa-delete-left"></i> Delete Transcript
+                    </a>
+                </td>
+                <td th:if="${student.transcript == null}" th:text="${''}"></td>
+                <td>
+                    <a th:href="@{'/edit/{studentId}'(studentId=${student.studentId})}">
+                        <i class="fa-regular fa-pen-to-square"></i> Edit Student
+                    </a>
+                </td>
+                <td>
+                    <a th:href="@{'/delete/{studentId}'(studentId=${student.studentId})}">
+                        <i class="fa-solid fa-delete-left"></i> Delete Student
+                    </a>
+                    <!--                        <a data-toggle="modal" data-target="#confirmDeleteBookModal" th:href="@{'/elibrary/book/delete/' + ${book.bookId}}">Delete</a>-->
+                    <!--                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">-->
+                    <!--                            Launch demo modal-->
+                    <!--                        </button>-->
+                </td>
+<!--                <td>-->
+<!--                    <a th:href="@{'/search'}">-->
+<!--                        <i class="fa-regular fa-pen-to-square"></i> Search Student-->
+<!--                    </a>-->
+<!--                </td>-->
+            </tr>
+<!--            <tr th:if="${students.isEmpty()}">-->
+<!--                <td colspan="8" th:align="center">No students found</td>-->
+<!--            </tr>-->
+            </tbody>
+        </table>
+        <!--Pagination-->
+        <div>
+            <ul class="pagination">
+                <li class="page-item disabled">
+                    <a class="page-link" href="#">Pages: </a>
+                </li>
+                <li th:each="i : ${#numbers.sequence(1, students.totalPages)}"
+                    th:class="${currentPageNo}==${i-1}?'page-item active':'page-item'">
+                    <a th:href="@{/student/list(pageNo=${i-1})}"
+                       th:text="${i}" class = "page-link"></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>
