@@ -15,4 +15,9 @@ public class HomeAndAboutPageController {
     public String displayAboutUsPage(){
         return "public/about";
     }
+
+    @GetMapping(value = "/login")
+    public String displayLoginPage(){
+        return "public/login";
+    }
 }

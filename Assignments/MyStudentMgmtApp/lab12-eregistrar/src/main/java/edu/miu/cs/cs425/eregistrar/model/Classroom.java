@@ -1,7 +1,7 @@
 package edu.miu.cs.cs425.eregistrar.model;
 
-import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
+import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "classrooms")

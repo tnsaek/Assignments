@@ -4,6 +4,7 @@ import edu.miu.cs.cs425.eregistrar.Service.RoleService;
 import edu.miu.cs.cs425.eregistrar.model.Role;
 import edu.miu.cs.cs425.eregistrar.repository.RoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import java.util.List;
 
@@ -15,6 +16,6 @@ public class RoleServiceImpl implements RoleService {
 
     @Override
     public List<Role> getAllRoles() {
-        return roleRepository.findAll();
+        return roleRepository.findAll(Sort.by("roleName"));
     }
 }

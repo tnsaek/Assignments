@@ -4,6 +4,7 @@ import edu.miu.cs.cs425.eregistrar.Service.UserService;
 import edu.miu.cs.cs425.eregistrar.model.User;
 import edu.miu.cs.cs425.eregistrar.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import java.util.List;
@@ -16,7 +17,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<User> getAllUsers() {
-        return userRepository.findAll();
+        return userRepository.findAll(Sort.by(Sort.Direction.ASC, "firstName"));
     }
 
     @Override

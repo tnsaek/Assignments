@@ -2,13 +2,14 @@ package edu.miu.cs.cs425.eregistrar.controller;
 
 import edu.miu.cs.cs425.eregistrar.Service.StudentService;
 import edu.miu.cs.cs425.eregistrar.model.Student;
-import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+
+import javax.validation.Valid;
 
 @Controller
 public class StudentController {
