@@ -9,6 +9,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="lab11-eregistrarWebApi" />
         <module name="lab9-studentMgmtApp" />
+        <module name="lab13-testing" />
         <module name="lab12-eregistrar" />
         <module name="lab10-eregistrar" />
       </profile>
@@ -17,6 +18,7 @@
       <module name="lab10-eregistrar" target="17" />
       <module name="lab11-eregistrarWebApi" target="17" />
       <module name="lab12-eregistrar" target="17" />
+      <module name="lab13-testing" target="17" />
       <module name="lab9-studentMgmtApp" target="17" />
     </bytecodeTargetLevel>
   </component>
@@ -25,6 +27,7 @@
       <module name="lab10-eregistrar" options="-parameters" />
       <module name="lab11-eregistrarWebApi" options="-parameters" />
       <module name="lab12-eregistrar" options="-parameters" />
+      <module name="lab13-testing" options="-parameters" />
       <module name="lab9-studentMgmtApp" options="-parameters" />
     </option>
   </component>

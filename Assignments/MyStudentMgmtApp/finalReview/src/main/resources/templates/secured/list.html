@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns: th="https://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>SRM :: Suppliers</title>
+</head>
+<body>
+<header>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/suppliers/list">Supplier</a>
+    <a href="#">Products</a>
+  </nav>
+</header>
+<main>
+  <h1>List Of Suppliers</h1>
+  <a href="/supplier/new">New</a>
+  <table border="1">
+    <thead>
+    <tr>
+      <th>Id</th>
+      <th>Supplier Number</th>
+      <th>Supplier Name</th>
+      <th>Supplier Phone Number</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="supplier , iterStat : ${suppliers}">
+    <th scope="row" th:text="${iterStat.count}"></th>
+      <td th:text="${supplier.supplierNumber}"></td>
+      <td th:text="${supplier.name}"></td>
+      <td th:text="${supplier.contactPhoneNumber}"></td>
+    </tr>
+    </tbody>
+  </table>
+</main>
+</body>
+</html>

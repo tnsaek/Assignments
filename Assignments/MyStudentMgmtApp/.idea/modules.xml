@@ -6,6 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/lab10-eregistrar/lab10-eregistrar.iml" filepath="$PROJECT_DIR$/lab10-eregistrar/lab10-eregistrar.iml" />
       <module fileurl="file://$PROJECT_DIR$/lab11-eregistrarWebApi/lab11-eregistrarWebApi.iml" filepath="$PROJECT_DIR$/lab11-eregistrarWebApi/lab11-eregistrarWebApi.iml" />
       <module fileurl="file://$PROJECT_DIR$/lab12-eregistrar/lab12-eregistrar.iml" filepath="$PROJECT_DIR$/lab12-eregistrar/lab12-eregistrar.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lab13-testing/lab13-testing.iml" filepath="$PROJECT_DIR$/lab13-testing/lab13-testing.iml" />
       <module fileurl="file://$PROJECT_DIR$/lab9-studentMgmtApp/lab9-studentMgmtApp.iml" filepath="$PROJECT_DIR$/lab9-studentMgmtApp/lab9-studentMgmtApp.iml" />
     </modules>
   </component>

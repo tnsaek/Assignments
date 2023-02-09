@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SRM :: Supplier</title>
+</head>
+<body>
+<header>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/suppliers/list">Supplier</a>
+    <a href="#">Products</a>
+  </nav>
+</header>
+<main>
+  <h1>New Supplier</h1>
+  <form action="/supplier/new" method="POST" th:object="${supplier}">
+    <div>
+      <span th:if="${#fields.hasErrors('supplierNumber')}" th:errors="*{supplierNumber}"></span>
+      <label>Supplier Number</label>
+    </div>
+    <div>
+      <input name="supplierNumber" type="text" th:field="*{supplierNumber}" required>
+    </div>
+    <div>
+      <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+      <label>Supplier Name</label>
+    </div>
+    <div>
+      <input name="name" type="text"  th:field="*{name}" required>
+    </div>
+    <div>
+      <span th:if="${#fields.hasErrors('contactPhoneNumber')}" th:errors="*{contactPhoneNumber}"></span>
+      <label>Supplier Phone</label>
+    </div>
+    <div>
+      <input name="contactPhoneNumber" type="text" th:field="*{contactPhoneNumber}">
+    </div>
+    <div>
+      <input type="submit" value="Add Supplier">
+    </div>
+  </form>
+</main>
+</body>
+</html>
